@@ -1,30 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <style>
+    </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content=" FILL ME IN ">
     <meta name="author" content=" FILL ME IN ">
+    <!--Adding Caching for images to help ptimize-->
+    <meta http-equiv="Cache-control" content="public">
+    <META http-equiv="expires" content="Mon, 22 Jul 2016 11:12:01 GMT">
     <title>Cameron Pittman: Portfolio</title>
 
     <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <!-- A request is sent for the font, then it has to finish loading and then the stylesheet has
+    to be parsed. The time for my page to laod is very inconsistent, however it generally take a lot 
+    longer. I don't think this font adds much to the page, so I'm just going to take it out-->
+   <!--<link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">-->
 
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/print.css" rel="stylesheet">
+    <link async href="css/style.css" rel="stylesheet" >
 
-    <script>
+    <!--Defering this script with help from this page from the course: https://hacks.mozilla.org/2009/06/defer/ This looks like I got a huge win by defering the analytics scripts which I should not block rendering on-->
+    <script async>
       (function(w,g){w['GoogleAnalyticsObject']=g;
       w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
-
       // Optional TODO: replace with your Google Analytics profile ID.
       ga('create', 'UA-XXXX-Y');
       ga('send', 'pageview');
     </script>
-    <script src="http://www.google-analytics.com/analytics.js"></script>
+    <!--Defering this script too-->
+    <script async src="http://www.google-analytics.com/analytics.js"></script>
     <script async src="js/perfmatters.js"></script>
-  </head>
+        <!--Added media=print to  defer print stylesheet because it isn't needed immediatley-->
+   <link media="print" href="css/print.css" rel="stylesheet" >
 
+  </head>
   <body>
     <header>
       <a href="/"><img src="img/profilepic.jpg"></a>

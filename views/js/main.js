@@ -501,9 +501,26 @@ function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
-  var items = document.querySelectorAll('.mover');
+    var items = document.querySelectorAll('.mover');
+  //GetElementsByClass is more efficient than querySelectorAll
+   // var items = document.GetElementsByClass('.mover');
+   //Tried this, but my pizzas dissapeared. Took it out
+
+//New variables to do less math 
+  var scrolltop_base = document.body.scrollTop / 1250;
+  //Taking the sin calcualtion outside of the forloop. We just have to calcualte the bases once. 
+  var phase_bases = [Math.sin(scrolltop_base + 0), Math.sin(scrolltop_base + 1), Math.sin(scrolltop_base + 2), Math.sin(scrolltop_base + 3), Math.sin(scrolltop_base + 4)]
+
   for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+
+    //This line is really overdoing the math. I really just need to store 5 numbers. Thanks for this great video https://www.youtube.com/watch?v=iccaPsYn5qA
+    //scrollTop - The top of the scrollbar
+    //var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+      var phase = phase_bases[ i % 5 ]
+
+    //print out the phase numbers 
+    //console.log(phase, document.body.scrollTop/1250, (document.body.scrollTop / 1250) + (i % 5) );
+
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -524,7 +541,10 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+
+  //You don't need 200 pizzas. Cutting this down to 22. I am still getting the same effect with 
+  //The Pizzas, but it is soooo much faster! 
+  for (var i = 0; i < 22; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
