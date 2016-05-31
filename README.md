@@ -33,7 +33,7 @@ and ngrok commands below in the Instructions for Project
 1. Took modulo calcualtions out of the for loop of layout
 2. Changed 200 rendered Pizzas to 22. I still have the same effect
 	Super helpful video: https://classroom.udacity.com/nanodegrees/nd001/parts/00113454012/modules/273584856175462/lessons/5988439100/concepts/68776485930923
-3. 
+3. Improved changePizzaSizes by taking things out of the Forloop. The pizzasliders now update much faster 
 		
 #Instructions for Project
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
