@@ -454,7 +454,8 @@ var resizePizzas = function(size) {
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
     //take the ransom pizza container, and dx and the new width out of the forloop so it doesn't get into a crazy recalcualtion loop
-    var randomPizzaContainer = document.querySelectorAll(".randomPizzaContainer")
+    //Round 2 edits: Trying getElementsByClassName instead of QuerySelectorAll
+    var randomPizzaContainer = document.getElementsByClassName(".randomPizzaContainer")
     var dx = determineDx(randomPizzaContainer[0], size);
     var newwidth = (randomPizzaContainer[0].offsetWidth + dx) + 'px';
 
@@ -551,7 +552,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //You don't need 200 pizzas. Cutting this down to 22. I am still getting the same effect with 
   //The Pizzas, but it is soooo much faster! 
-  for (var i = 0; i < 22; i++) {
+
+  //for (var i = 0; i < 22; i++) {
+
+    // Edit 2: Calculating the number of pizzas based on window height 
+    //var numberOfPizzas = window.innerHeight/s*cols; - this didn't seem to work. Please let me know
+    //if I am doing something wrong. I am going to put in 24 pizzas for now
+    //console.log(numberOfPizzas);
+
+    for (var i = 0; i < 24; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
