@@ -455,7 +455,7 @@ var resizePizzas = function(size) {
   function changePizzaSizes(size) {
     //take the ransom pizza container, and dx and the new width out of the forloop so it doesn't get into a crazy recalcualtion loop
     //Round 2 edits: Trying getElementsByClassName instead of QuerySelectorAll
-    var randomPizzaContainer = document.getElementsByClassName(".randomPizzaContainer")
+    var randomPizzaContainer = document.getElementsByClassName("randomPizzaContainer")
     var dx = determineDx(randomPizzaContainer[0], size);
     var newwidth = (randomPizzaContainer[0].offsetWidth + dx) + 'px';
 
